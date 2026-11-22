@@ -8,8 +8,8 @@ if(t==1e6)throw 10;
 if(x<0||x>=p.length)throw 9;
 let b=p[x],v=b==1?1:b==2?4:b>47&&b<52?2:0;
 if(x+v>=p.length)throw 9;
-t++;let y=x+1+v;x=y;
-if(b>15&&b<35&&b!=23&&b!=27&&b!=31){
+t++;let y=x+1+v;x=y;let R=()=>((p[y-2]|p[y-1]<<8)<<16>>16);
+if(b>15&&b<35&&b-23&&b-27&&b-31){
 N(2);
 let A=D[s-2],B=D[s-1];
 if(b>18&&b<23&&B==0)throw 4;
@@ -26,8 +26,8 @@ case 5:N(2);let a=D[s-1];D[s-1]=D[s-2];D[s-2]=a;break;
 case 6:N(2);P(D[s-2]);break;
 case 7:N(3);let u=D[s-3];D[s-3]=D[s-2];D[s-2]=D[s-1];D[s-1]=u;break;
 case 23:case 27:N(1);D[s-1]=b==23?-D[s-1]|0:~D[s-1];break;
-case 48:x=y+((p[y-2]|p[y-1]<<8)<<16>>16);break;
-case 49:case 50:N(1);let z=D[--s];if((b==49)==(z==0))x=y+((p[y-2]|p[y-1]<<8)<<16>>16);break;
+case 48:x=y+R();break;
+case 49:case 50:N(1);let z=D[--s];if((b==49)==(z==0))x=y+R();break;
 case 51:if(c>63)throw 7;C[c++]=y;x=p[y-2]|p[y-1]<<8;break;
 case 52:if(!c)throw 8;x=C[--c];break;
 case 64:N(1);let h=D[s-1];if(h<0||h>255)throw 6;D[s-1]=M[h];break;
